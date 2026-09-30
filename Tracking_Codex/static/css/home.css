@@ -1,3 +1,36 @@
+:root[data-theme="light"] .home-hero {
+    color: var(--nav-text);
+    background: var(--page-background);
+}
+
+:root[data-theme="light"] .home-hero__accent {
+    color: var(--theme-red);
+}
+
+:root[data-theme="light"] .home-quote__outline {
+    filter: none;
+}
+
+:root[data-theme="light"] .home-quote__outline path {
+    fill: #fafbf9;
+}
+
+:root[data-theme="light"] .home-quote__outline stop {
+    stop-color: var(--nav-accent);
+    stop-opacity: 1;
+}
+
+:root[data-theme="light"] .home-quote__mark {
+    color: var(--nav-accent);
+}
+
+:root[data-theme="light"] .home-calculator {
+    background: var(--nav-background);
+    color: var(--nav-accent);
+    border-color: var(--nav-accent);
+    box-shadow: none;
+}
+
 .home-hero {
     position: relative;
     isolation: isolate;
@@ -5,11 +38,66 @@
     min-height: calc(100vh - 84px);
     min-height: calc(100svh - 84px);
     color: #f3f2f0;
+    background: #060e16;
+}
+
+/* Crossfade atmosphere layers: CSS background images cannot interpolate. */
+.home-hero::before,
+.home-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    transition: opacity var(--theme-duration) ease;
+}
+
+.home-hero::before {
     background:
         radial-gradient(ellipse at 0% 6%, rgb(0 137 157 / 17%), transparent 42%),
         radial-gradient(ellipse at 57% 94%, rgb(0 114 137 / 13%), transparent 43%),
-        radial-gradient(ellipse at 100% 60%, rgb(147 36 51 / 17%), transparent 38%),
-        #060e16;
+        radial-gradient(ellipse at 100% 60%, rgb(147 36 51 / 17%), transparent 38%);
+    opacity: 1;
+}
+
+.home-hero::after {
+    /* Broad, feathered falloffs keep the haze diffuse without hard circles. */
+    background:
+        radial-gradient(ellipse at -12% 18%, rgb(0 150 156 / 9%), rgb(0 150 156 / 3%) 28%, transparent 62%),
+        radial-gradient(ellipse at 55% 108%, rgb(0 145 155 / 7%), rgb(0 145 155 / 2%) 24%, transparent 55%),
+        radial-gradient(ellipse at 112% 58%, rgb(190 65 79 / 8%), rgb(190 65 79 / 2%) 30%, transparent 65%);
+    opacity: 0;
+}
+
+:root[data-theme="light"] .home-hero::before {
+    opacity: 0;
+}
+
+:root[data-theme="light"] .home-hero::after {
+    opacity: 1;
+}
+
+.home-hero,
+.home-hero__accent,
+.home-quote__mark,
+.home-calculator {
+    transition: background-color var(--theme-duration) ease,
+        color var(--theme-duration) ease,
+        border-color var(--theme-duration) ease,
+        box-shadow var(--theme-duration) ease;
+}
+
+.home-quote__outline {
+    transition: filter var(--theme-duration) ease;
+}
+
+.home-quote__outline path {
+    transition: fill var(--theme-duration) ease;
+}
+
+.home-quote__outline stop {
+    transition: stop-color var(--theme-duration) ease,
+        stop-opacity var(--theme-duration) ease;
 }
 
 .home-hero *,

@@ -1,13 +1,59 @@
-/* Shared navbar only. Page content keeps its own styling. */
-body {
-    margin: 0;
-}
-
-.site-header {
+/* Shared theme colors. Dark is the default without a saved preference. */
+:root {
+    --theme-duration: 0s;
+    color-scheme: dark;
+    --page-background: #060e16;
     --nav-background: #071119;
     --nav-text: #f3f5f7;
     --nav-muted: #c9d0d7;
     --nav-accent: #00dedb;
+    --theme-red: #df414b;
+    --nav-divider: #2a3945;
+}
+
+/* Enable motion only after an intentional toggle, never on initial load. */
+:root[data-theme-motion="ready"] {
+    --theme-duration: 550ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :root[data-theme-motion="ready"] {
+        --theme-duration: 0s;
+    }
+}
+
+body,
+.site-header,
+.site-header a,
+.site-header button,
+.site-brand__mark::before,
+.site-brand__mark::after,
+.site-brand__mark span,
+.site-nav__link::after,
+.site-nav__divider {
+    transition: background-color var(--theme-duration) ease,
+        color var(--theme-duration) ease,
+        border-color var(--theme-duration) ease;
+}
+
+:root[data-theme="light"] {
+    color-scheme: light;
+    --page-background: #f5f6f4;
+    --nav-background: #fafbf9;
+    --nav-text: #182b34;
+    --nav-muted: #4b5f67;
+    --nav-accent: #007e7c;
+    --theme-red: #b83343;
+    --nav-divider: #cbd5d5;
+}
+
+body {
+    margin: 0;
+    background: var(--page-background);
+    color: var(--nav-text);
+}
+
+.site-header {
     background: var(--nav-background);
     color: var(--nav-text);
     font-family: Arial, Helvetica, sans-serif;
@@ -87,7 +133,7 @@ body {
     inset: 22px auto auto 21px;
     width: 9px;
     height: 13px;
-    background: #df414b;
+    background: var(--theme-red);
 }
 
 .site-nav__links,
@@ -137,6 +183,7 @@ body {
 }
 
 .site-nav__theme {
+    cursor: pointer;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -151,7 +198,7 @@ body {
 .site-nav__divider {
     width: 1px;
     height: 32px;
-    background: #2a3945;
+    background: var(--nav-divider);
 }
 
 .site-header .site-nav__market {
