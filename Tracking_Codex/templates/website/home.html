@@ -9,6 +9,21 @@
 
 {% block content %}
     <main class="home-hero" lang="es" aria-labelledby="home-title">
+        <svg class="home-hero__streaks" viewBox="0 0 1600 850" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <defs>
+                <linearGradient id="hero-cyan-streak" x1="0" y1="1" x2="1" y2="0">
+                    <stop offset="0" stop-color="#00b9c8" stop-opacity=".8" />
+                    <stop offset="1" stop-color="#00b9c8" stop-opacity="0" />
+                </linearGradient>
+                <linearGradient id="hero-red-streak" x1="0" y1="1" x2="1" y2="0">
+                    <stop offset="0" stop-color="#de4b59" stop-opacity="0" />
+                    <stop offset="1" stop-color="#de4b59" stop-opacity=".8" />
+                </linearGradient>
+            </defs>
+            <path d="M-50 265 C150 95 335 155 615 -30" stroke="url(#hero-cyan-streak)" />
+            <path d="M570 865 C785 795 845 735 1040 610" stroke="url(#hero-cyan-streak)" opacity=".4" />
+            <path d="M1000 805 C1280 785 1380 555 1650 420" stroke="url(#hero-red-streak)" />
+        </svg>
         <div class="home-hero__inner">
             <h1 class="home-hero__title" id="home-title">
                 <span>La consistencia que</span>
@@ -26,7 +41,7 @@
                             <stop offset="1" stop-color="#e44750" stop-opacity=".85" />
                         </linearGradient>
                     </defs>
-                    <path d="M12 64 C36 -9 145 10 229 28 C302 44 350 54 427 40 C521 24 593 -1 657 39 C677 52 687 65 682 79 C675 98 707 144 682 175 C650 221 552 220 470 199 C396 180 354 176 290 194 C222 213 176 233 108 205 C42 179 -7 119 12 64 Z" />
+                    <path d="M12 64 C30 9 99 0 182 14 C269 28 337 52 420 40 C512 28 574 8 628 30 C663 44 687 61 681 80 C671 104 700 139 687 165 C670 204 610 218 541 205 C460 190 407 172 338 188 C257 207 205 225 136 208 C62 190 -8 125 12 64 Z" />
                 </svg>
                 <span class="home-quote__mark" aria-hidden="true">“</span>
                 <p>Tu ventaja no nace del impulso,<br class="home-quote__break"> nace de la disciplina.</p>

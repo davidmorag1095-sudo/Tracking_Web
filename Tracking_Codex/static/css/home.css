@@ -35,8 +35,8 @@
     position: relative;
     isolation: isolate;
     box-sizing: border-box;
-    min-height: calc(100vh - 84px);
-    min-height: calc(100svh - 84px);
+    min-height: calc(100vh - 72px);
+    min-height: calc(100svh - 72px);
     color: #f3f2f0;
     background: #060e16;
 }
@@ -54,9 +54,10 @@
 
 .home-hero::before {
     background:
-        radial-gradient(ellipse at 0% 6%, rgb(0 137 157 / 17%), transparent 42%),
-        radial-gradient(ellipse at 57% 94%, rgb(0 114 137 / 13%), transparent 43%),
-        radial-gradient(ellipse at 100% 60%, rgb(147 36 51 / 17%), transparent 38%);
+        radial-gradient(ellipse at -8% 9%, rgb(0 163 182 / 32%), transparent 46%),
+        radial-gradient(ellipse at 5% 38%, rgb(0 119 139 / 12%), transparent 42%),
+        radial-gradient(ellipse at 57% 94%, rgb(0 114 137 / 16%), transparent 43%),
+        radial-gradient(ellipse at 107% 59%, rgb(166 42 57 / 25%), transparent 40%);
     opacity: 1;
 }
 
@@ -75,6 +76,28 @@
 
 :root[data-theme="light"] .home-hero::after {
     opacity: 1;
+}
+
+.home-hero__streaks {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: .32;
+    filter: blur(1px);
+    transition: opacity var(--theme-duration) ease;
+}
+
+.home-hero__streaks path {
+    fill: none;
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+}
+
+:root[data-theme="light"] .home-hero__streaks {
+    opacity: .04;
 }
 
 .home-hero,
@@ -107,19 +130,19 @@
 }
 
 .home-hero__inner {
-    max-width: 1600px;
+    max-width: 1800px;
     margin-inline: auto;
-    padding: clamp(88px, 18vh, 180px) clamp(20px, 5vw, 80px) 160px;
+    padding: clamp(100px, 21vh, 210px) clamp(24px, 7.5vw, 144px) 136px;
 }
 
 .home-hero__title {
-    max-width: 850px;
+    max-width: 900px;
     margin: 0;
     font-family: "Baskerville", "Palatino Linotype", "Book Antiqua", Georgia, serif;
-    font-size: clamp(46px, 4.65vw, 80px);
+    font-size: clamp(46px, 4.8vw, 84px);
     font-weight: 400;
-    line-height: 1.05;
-    letter-spacing: -.035em;
+    line-height: 1.09;
+    letter-spacing: -.03em;
 }
 
 .home-hero__title span {
@@ -127,18 +150,18 @@
 }
 
 .home-hero__accent {
-    color: #e3474b;
+    color: #e7474e;
 }
 
 .home-quote {
     position: relative;
     display: flex;
     align-items: center;
-    gap: 28px;
-    width: min(100%, 680px);
-    min-height: 210px;
-    margin: 32px 0 0 -12px;
-    padding: 44px 48px;
+    gap: 32px;
+    width: min(100%, 720px);
+    min-height: 220px;
+    margin: 30px 0 0 -12px;
+    padding: 48px 52px;
     font-family: "Baskerville", "Palatino Linotype", "Book Antiqua", Georgia, serif;
 }
 
@@ -149,13 +172,13 @@
     width: 100%;
     height: 100%;
     overflow: visible;
-    filter: drop-shadow(-5px 0 10px rgb(0 222 219 / 8%)) drop-shadow(5px 0 10px rgb(228 71 80 / 8%));
+    filter: drop-shadow(-5px 0 12px rgb(0 222 219 / 12%)) drop-shadow(5px 0 12px rgb(228 71 80 / 9%));
 }
 
 .home-quote__outline path {
-    fill: rgb(5 13 21 / 60%);
+    fill: rgb(5 13 21 / 66%);
     stroke: url(#quote-edge);
-    stroke-width: 1.4;
+    stroke-width: 1.2;
     vector-effect: non-scaling-stroke;
 }
 
@@ -164,16 +187,16 @@
     flex: 0 0 auto;
     color: #00dedb;
     font-family: Georgia, serif;
-    font-size: 76px;
+    font-size: 68px;
     font-weight: 700;
     line-height: 1;
 }
 
 .home-quote p {
     margin: 0;
-    font-size: clamp(22px, 2vw, 32px);
+    font-size: clamp(22px, 1.8vw, 30px);
     font-style: italic;
-    line-height: 1.35;
+    line-height: 1.45;
 }
 
 .home-calculator {
@@ -183,8 +206,8 @@
     bottom: max(28px, env(safe-area-inset-bottom));
     display: grid;
     place-items: center;
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     padding: 0;
     border: 1px solid #00dedb;
     border-radius: 50%;
@@ -195,12 +218,18 @@
     cursor: not-allowed;
 }
 
+.home-calculator svg {
+    width: 28px;
+    height: 31.5px;
+}
+
 @media (max-width: 800px) {
     .home-hero {
-        min-height: calc(100svh - 128px);
+        min-height: calc(100svh - 108px);
     }
 
     .home-hero__inner {
+        padding-inline: clamp(20px, 5vw, 40px);
         padding-top: 76px;
         padding-bottom: 136px;
     }
@@ -216,10 +245,15 @@
     }
 
     .home-calculator {
-        width: 60px;
-        height: 60px;
+        width: 56px;
+        height: 56px;
         right: max(20px, env(safe-area-inset-right));
         bottom: max(20px, env(safe-area-inset-bottom));
+    }
+
+    .home-calculator svg {
+        width: 24px;
+        height: 27px;
     }
 }
 
