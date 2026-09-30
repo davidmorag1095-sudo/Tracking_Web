@@ -8,8 +8,38 @@
 {% endblock %}
 
 {% block content %}
-    <h1>TradeTrack</h1>
-    <p>Home page working.</p>
+    <main class="home-hero" lang="es" aria-labelledby="home-title">
+        <div class="home-hero__inner">
+            <h1 class="home-hero__title" id="home-title">
+                <span>La consistencia que</span>
+                <span>repites hoy construye</span>
+                <span class="home-hero__accent">la libertad de mañana.</span>
+            </h1>
+
+            <blockquote class="home-quote">
+                <svg class="home-quote__outline" viewBox="0 0 700 220" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                    <defs>
+                        <linearGradient id="quote-edge" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0" stop-color="#00dedb" stop-opacity=".85" />
+                            <stop offset=".42" stop-color="#28515e" stop-opacity=".45" />
+                            <stop offset=".62" stop-color="#48303d" stop-opacity=".45" />
+                            <stop offset="1" stop-color="#e44750" stop-opacity=".85" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M12 64 C36 -9 145 10 229 28 C302 44 350 54 427 40 C521 24 593 -1 657 39 C677 52 687 65 682 79 C675 98 707 144 682 175 C650 221 552 220 470 199 C396 180 354 176 290 194 C222 213 176 233 108 205 C42 179 -7 119 12 64 Z" />
+                </svg>
+                <span class="home-quote__mark" aria-hidden="true">“</span>
+                <p>Tu ventaja no nace del impulso,<br class="home-quote__break"> nace de la disciplina.</p>
+            </blockquote>
+        </div>
+
+        <button class="home-calculator" type="button" disabled aria-label="Calculadora — próximamente" title="Calculadora — próximamente">
+            <svg width="32" height="36" viewBox="0 0 28 34" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <rect x="4" y="2" width="20" height="29" rx="2" />
+                <path d="M8 7h12v5H8z M8 17h1 M13 17h1 M18 17h1 M8 21h1 M13 21h1 M18 21h1 M8 25h1 M13 25h1 M18 25h1" />
+            </svg>
+        </button>
+    </main>
 {% endblock %}
 
 {% block extra_js %}
