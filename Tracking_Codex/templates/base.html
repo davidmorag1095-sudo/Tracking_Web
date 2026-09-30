@@ -9,6 +9,29 @@
     {% block extra_css %}{% endblock %}
 </head>
 <body>
+    <header class="site-header">
+        <nav class="site-nav" aria-label="Principal">
+            <a class="site-brand" href="{% url 'home' %}" aria-label="TradeTrack — Inicio">
+                <span class="site-brand__mark" aria-hidden="true"><span></span></span>
+                <span class="site-brand__name"><strong>Trade</strong>Track</span>
+            </a>
+
+            <div class="site-nav__links">
+                <a class="site-nav__link" href="{% url 'home' %}"{% if request.resolver_match.url_name == 'home' %} aria-current="page"{% endif %}>Inicio</a>
+                <button class="site-nav__link" type="button" disabled title="Habits — próximamente">Habits</button>
+            </div>
+
+            <div class="site-nav__actions">
+                <button class="site-nav__theme" type="button" disabled aria-label="Cambiar tema — próximamente" title="Cambiar tema — próximamente">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                        <path d="M20.5 13.2A8.5 8.5 0 0 1 10.8 3.5a8.5 8.5 0 1 0 9.7 9.7Z" />
+                    </svg>
+                </button>
+                <span class="site-nav__divider" aria-hidden="true"></span>
+                <button class="site-nav__market" type="button" disabled title="Market — próximamente">Market</button>
+            </div>
+        </nav>
+    </header>
     {% block content %}{% endblock %}
 
     <script src="{% static 'js/base.js' %}"></script>
